@@ -155,6 +155,35 @@ class Theme(models.Model):
         default="code",
         verbose_name=_("display"),
     )
+    css_body_foreground_color = ColorField(
+        blank=True,
+        default="#333",
+        help_text=_("Default: #333 (required fields, error messages)"),
+        max_length=10,
+        verbose_name=_("foreground color"),
+    )
+    css_body_background_color = ColorField(
+        blank=True,
+        default="#fff",
+        help_text="#fff",
+        max_length=10,
+        verbose_name=_("background color"),
+    )
+    css_body_quiet_color = ColorField(
+        blank=True,
+        default="#666",
+        help_text=_(
+            "Default: #666 (optional fields, help text, field content)"),
+        max_length=10,
+        verbose_name=_("quiet color"),
+    )
+    css_body_loud_color = ColorField(
+        blank=True,
+        default="#000",
+        help_text="#000",
+        max_length=10,
+        verbose_name=_("loud color"),
+    )
 
     css_header_background_color = ColorField(
         blank=True,
@@ -350,7 +379,8 @@ class Theme(models.Model):
     )
     list_filter_removal_links = models.BooleanField(
         default=False,
-        verbose_name=_("quick remove links for active filters at top of sidebar"),
+        verbose_name=_(
+            "quick remove links for active filters at top of sidebar"),
     )
 
     foldable_apps = models.BooleanField(
